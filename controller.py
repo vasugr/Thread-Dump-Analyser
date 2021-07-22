@@ -41,6 +41,10 @@ def generateStringSummary(analyzed):
 		ans1 += " -------------------------------------------------\n"
 		ans1 += "|\t\tSTATE : "+state+"\n"
 		ans1 += "  ------------------------------------------------\n\n"
+
+		tmpstraceRegion2 = []
+		tmpstraceRegion2.append(len(ans1)-53)
+		
 		thrdStateCount=0
 
 		if state == "BLOCKED":
@@ -80,6 +84,12 @@ def generateStringSummary(analyzed):
 			#	ans5 += "\n -------------------------------------------------\n"
 			#	ans5 += ' '.join(map(str, tinfo.callList)) 
 
+		tmpstraceRegion2.append(len(ans1)-2)
+
+		print(" start = "+str(tmpstraceRegion2[0]) + " end = " + str(tmpstraceRegion2[1]))
+
+		stacktraceFold.append(tmpstraceRegion2)
+
 		ans2 += "\n\t\t"+state + " : " + str(thrdStateCount)
 		totThrdCount+=thrdStateCount
 
@@ -114,16 +124,18 @@ def generateStringSummary(analyzed):
 	regionOffset = len(ans)
 	stacktraceFold2 = [sublime.Region(a[0]+regionOffset,a[1]+regionOffset) for a in stacktraceFold]
 
+	print(" offset = "+str(regionOffset))
+
 	ans += ans1
 
 	return ans,stacktraceFold2+treefold2
 		
 
 def generateSummary(thrdDump):
-	print("generating sumary...\n")
+	#print("generating sumary...\n")
 	parsed = parser.parseDump(thrdDump)
-	print("parsed....\n")
+	#print("parsed....\n")
 	analyzed = analyzer.AnalyzeDump(parsed)
-	print("analyzed ... \n")
+	#print("analyzed ... \n")
 	return generateStringSummary(analyzed)
 	#return str(analyzed.keys())
