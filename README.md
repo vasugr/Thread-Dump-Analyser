@@ -1,3 +1,5 @@
+#Thread Dump Analyser
+
 ## Features
 
 This extension parses and analyzes thread dump and generates a summary to display useful information.
