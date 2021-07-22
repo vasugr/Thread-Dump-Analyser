@@ -24,6 +24,13 @@ This extension parses and analyzes thread dump and generates a summary to displa
 ![OUTPUT](/images/output.png)
 
 
+## Installation
+
+* Open the command palette : 
+   Win/Linux: ctrl+shift+p, Mac: cmd+shift+p
+* Type "Install Package", press enter
+* Search for "Thread Dump Analyser" and install it
+
 # How To Use
 
 * Mac: 
@@ -31,5 +38,6 @@ This extension parses and analyzes thread dump and generates a summary to displa
 
 * Windows/Linux: 
   * ```ctrl+shift+o```<br />
+
 
 -----------------------------------------------------------------------------------------------------------
